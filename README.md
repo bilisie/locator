@@ -37,7 +37,7 @@ Required:
 - maven 3
 - Docker
 
-For running tests and building he docker image:
+For running tests and building the docker image:
 
 ```
 mvn clean install
