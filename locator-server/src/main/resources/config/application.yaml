@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+logging:
+  path: ./logs
+  file: app.log
+  level:
+    root: ERROR
+
+aws:
+  region: us-east-2
+  dynamo:
+    endpoint: https://dynamodb.us-east-2.amazonaws.com

@@ -1,0 +1,50 @@
+{
+  "tableName": "visits",
+  "keySchema": [
+    {
+      "attributeName": "visitId",
+      "keyType": "HASH"
+    }
+  ],
+  "attributeDefinitions": [
+    {
+      "attributeName": "visitId",
+      "attributeType": "S"
+    },
+    {
+      "attributeName": "transactionTimestamp",
+      "attributeType": "N"
+    },
+    {
+      "attributeName": "userId",
+      "attributeType": "S"
+    }
+  ],
+  "globalSecondaryIndexes": [
+    {
+      "indexName": "userIndex",
+      "keySchema": [
+        {
+          "attributeName": "userId",
+          "keyType": "HASH"
+        },
+        {
+          "attributeName": "transactionTimestamp",
+          "keyType": "RANGE"
+        }
+      ],
+      "projection": {
+        "projectionType": "ALL"
+      },
+      "provisionedThroughput": {
+        "readCapacityUnits": 10,
+        "writeCapacityUnits": 10
+      }
+    }
+  ],
+  "provisionedThroughput": {
+    "readCapacityUnits": 10,
+    "writeCapacityUnits": 10
+  },
+  "readLimit": 131073
+}

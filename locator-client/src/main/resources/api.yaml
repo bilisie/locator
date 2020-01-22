@@ -1,0 +1,114 @@
+openapi: "3.0.0"
+info:
+  title: Locator
+  version: 0.0.1
+  description: API of locator service
+  contact:
+    name: Bogdan Ilisie
+    email: bilisie@gmail.com
+servers:
+  - url: http://locator-188295432.us-east-2.elb.amazonaws.com
+paths:
+  /:
+    post:
+      tags:
+        - locator
+      description: Registers user visit
+      operationId: registerVisit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserVisit'
+      responses:
+        '200':
+          description: User visit response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserVisitResponse'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /visit:
+    get:
+      tags:
+        - locator
+      description: Retrieves user visit by visit identifier or performs search
+      parameters:
+        - in: query
+          name: visitId
+          schema:
+            type: String
+        - in: query
+          name: userId
+          schema:
+            type: String
+        - in: query
+          name: searchString
+          schema:
+            type: String
+      responses:
+        '200':
+          description: User visit details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserVisitDetailsArray'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    UserVisitDetailsArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/UserVisitDetails'
+    UserVisitDetails:
+      type: object
+      required:
+        - userId
+        - name
+        - visitId
+      properties:
+        userId:
+          type: string
+        name:
+          type: string
+        visitId:
+          type: string
+    UserVisit:
+      type: object
+      required:
+        - userId
+        - name
+      properties:
+        userId:
+          type: string
+        name:
+          type: string
+    UserVisitResponse:
+      type: object
+      required:
+        - visitId
+      properties:
+        visitId:
+          type: string
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
