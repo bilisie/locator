@@ -30,7 +30,7 @@
         <commons-lang3.version>3.7</commons-lang3.version>
         <spring.boot.version>2.0.5.RELEASE</spring.boot.version>
         <docker.file.maven.plugin>1.4.10</docker.file.maven.plugin>
-        <openapi.generator.version>4.2.2</openapi.generator.version>
+        <openapi.generator.version>5.1.0</openapi.generator.version>
         <gson.fire.version>1.8.3</gson.fire.version>
         <okio.version>2.4.3</okio.version>
         <okhttp3.version>4.3.1</okhttp3.version>
