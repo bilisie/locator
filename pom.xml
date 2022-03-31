@@ -28,7 +28,7 @@
         <junit.jupiter.version>5.3.2</junit.jupiter.version>
         <testcontainers.version>1.10.5</testcontainers.version>
         <commons-lang3.version>3.7</commons-lang3.version>
-        <spring.boot.version>2.0.5.RELEASE</spring.boot.version>
+        <spring.boot.version>2.5.12</spring.boot.version>
         <docker.file.maven.plugin>1.4.10</docker.file.maven.plugin>
         <openapi.generator.version>4.2.2</openapi.generator.version>
         <gson.fire.version>1.8.3</gson.fire.version>
